@@ -8,6 +8,6 @@ RUN mvn clean package
 #Second stage : Java 11 build
 FROM eclipse-temurin:17-jre-alpine
 
-COPY --from=MAVEN /spring-boot-docker/target/spring-boot-docker.jar /spring-boot-docker.jar
+COPY --from=MAVEN ./target/spring-boot-docker.jar /spring-boot-docker.jar
 
 CMD ["java", "-jar", "/spring-boot-docker.jar"]
